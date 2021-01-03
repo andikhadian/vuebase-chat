@@ -94,6 +94,15 @@ export default {
       inputMessage.value = ''
     }
 
+    const DestroyNotification =() => {
+      if (state.notification) {
+        const timeout = setTimeout(() => {
+          state.notification = ''
+        }, 500)
+        return timeout
+      }
+    }
+
     onMounted(() => {
       messagesRef.on('value', snapshot => {
         const data = snapshot.val()
@@ -119,6 +128,7 @@ export default {
       Login,
       AddUsername,
       SendMessage,
+      DestroyNotification,
     }
   }
 }
@@ -137,7 +147,7 @@ export default {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background-color: #ea526f;
+  background-color: #00b761;
 
   &.login {
     align-items: center;
@@ -159,7 +169,7 @@ export default {
         }
         p {
           text-align: center;
-          color: #ea526f;
+          color: #00b761;
           font-size: 1rem;
           margin-bottom: 15px;
         }
@@ -200,7 +210,7 @@ export default {
           display: block;
           width: 100%;
           padding: 10px 15px;
-          background-color: #ea526f;
+          background-color: #00b761;
           border-radius: 8px;
           color: #fff;
           font-size: 18px;
@@ -208,7 +218,7 @@ export default {
         }
         &:focus-within {
           label {
-            color: #ea526f;
+            color: #00b761;
           }
           input[type="text"] {
             background-color: #fff;
@@ -284,7 +294,7 @@ export default {
             .content {
               color: #fff;
               font-weight: 600;
-              background-color: #ea526f;
+              background-color: #00b761;
             }
           }
         }
@@ -328,7 +338,7 @@ export default {
           display: block;
           padding: 10px 15px;
           border-radius: 0px 8px 8px 0px;
-          background-color: #ea526f;
+          background-color: #00b761;
           color: #fff;
           font-size: 18px;
           font-weight: 700;
