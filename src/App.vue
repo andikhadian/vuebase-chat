@@ -21,9 +21,12 @@
   </form>
 </div>
 <div v-else class="view chat">
-  <header>
+  <!-- <header>
     <h1>Welcome, {{ state.username }}</h1>
-  </header>
+  </header> -->
+  <div class="chat-header">
+    <h2>Welcome, {{state.username}}</h2>
+  </div>
   <section class="chat-box">
     <div v-for="message in state.messages" :key="message.id" :class="(message.username === state.username ? 'message current-user' : 'message')">
       <div class="message-inner">
@@ -38,7 +41,7 @@
       <input type="submit" value="Send it">
     </form>
   </footer>
-  <button class="logout" @click.prevent="() => state.username = ''">Logout</button>
+  <!-- <button class="logout" @click.prevent="() => state.username = ''">Logout</button> -->
 </div>
 </template>
 
@@ -163,7 +166,7 @@ export default {
         display: block;
         background-color: #fff;
         padding: 50px 40px;
-        border-radius: 16px;
+        border-radius: 6px;
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
         h1 {
           color: #aaa;
@@ -192,7 +195,7 @@ export default {
           display: block;
           width: 100%;
           padding: 10px 15px;
-          border-radius: 8px;
+          border-radius: 6px;
           margin-bottom: 15px;
 
           color: #333;
@@ -214,7 +217,7 @@ export default {
           width: 100%;
           padding: 10px 15px;
           background-color: #00b761;
-          border-radius: 8px;
+          border-radius: 6px;
           color: #fff;
           font-size: 18px;
           font-weight: 700;
@@ -259,14 +262,34 @@ export default {
         text-align: center;
       }
     }
+    .chat-header {
+      position: sticky;
+      top: 0px;
+      background-color: #fff;
+      border-radius: 6px 6px 0 0;
+      padding: 30px;
+      box-shadow: 0px 2px 2px 0px rgba(100, 100, 100, 0.2);
+    }
     .chat-box {
-      max-height: 420px;
-      border-radius: 24px 24px 0px 0px;
+      max-height: 450px;
       background-color: #fff;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
       flex: 1 1 100%;
       padding: 30px;
       overflow-y: auto;
+      margin-top: -40px;
+      overflow-x: hidden;
+      &::-webkit-scrollbar {
+        width: 0.25rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #00b761;
+      }
       .message {
         display: flex;
         margin-bottom: 15px;
@@ -276,14 +299,12 @@ export default {
             color: #888;
             font-size: 16px;
             margin-bottom: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
           }
           .content {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px;
             background-color: #f3f3f3;
-            border-radius: 999px;
+            border-radius: 6px;
             color: #333;
             font-size: 18px;
             line-height: 1.2em;
@@ -309,7 +330,7 @@ export default {
       position: sticky;
       bottom: 0px;
       background-color: #fff;
-      border-radius: 0 0 24px 24px;
+      border-radius: 0 0 6px 6px;
       padding: 30px;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
       form {
@@ -325,7 +346,7 @@ export default {
           display: block;
           // margin-right: 20px;
           padding: 15px 15px;
-          border-radius: 100px;
+          border-radius: 6px;
 
           color: #333;
           font-size: 18px;
@@ -349,7 +370,7 @@ export default {
           background: none;
           display: block;
           padding: 7px 15px;
-          border-radius: 100px;
+          border-radius: 6px;
           background-color: #00b761;
           color: #fff;
           font-size: 18px;
