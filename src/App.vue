@@ -2,7 +2,7 @@
 <div class="view login" v-if="!state.passcode">
   <form class="login-form" @submit.prevent="Login">
     <div class="form-inner">
-      <h1>Login to join the Gamiy Group's</h1>
+      <h1>Login to join the Group's</h1>
       <label for="passcode">Passcode</label>
       <input v-model="inputPasscode" type="password" name="" id="" placeholder="Enter the passcode...">
       <p v-if="state.notification" for="passcode">{{state.notification}}</p>
@@ -63,7 +63,7 @@ export default {
     const Login = () => {
       console.log(inputPasscode.value)
       if (inputPasscode.value !== "" || inputPasscode.value !== null) {
-        if (inputPasscode.value !== '25112017') {
+        if (inputPasscode.value !== '123') {
           state.notification = 'WRONG PASSCODE'
         } else {
           state.passcode = inputPasscode.value
@@ -162,7 +162,7 @@ export default {
       .form-inner {
         display: block;
         background-color: #fff;
-        padding: 50px 15px;
+        padding: 50px 40px;
         border-radius: 16px;
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
         h1 {
@@ -260,7 +260,7 @@ export default {
       }
     }
     .chat-box {
-      max-height: 450px;
+      max-height: 420px;
       border-radius: 24px 24px 0px 0px;
       background-color: #fff;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
