@@ -335,6 +335,7 @@ export default {
           &::placeholder {
             color: #888;
             transition: 0.4s;
+            text-align: center;
           }
         }
 
