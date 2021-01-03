@@ -22,7 +22,6 @@
 </div>
 <div v-else class="view chat">
   <header>
-    <button class="logout" @click.prevent="() => state.username = ''">Logout</button>
     <h1>Welcome, {{ state.username }}</h1>
   </header>
   <section class="chat-box">
@@ -39,6 +38,7 @@
       <input type="submit" value="Send it">
     </form>
   </footer>
+  <button class="logout" @click.prevent="() => state.username = ''">Logout</button>
 </div>
 </template>
 
@@ -236,32 +236,31 @@ export default {
   }
   &.chat {
     flex-direction: column;
+    .logout {
+      // right: 15px;
+      appearance: none;
+      border: none;
+      outline: none;
+      background: none;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
     header {
       position: relative;
       display: block;
       width: 100%;
-      padding: 50px 30px 10px;
-      .logout {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        appearance: none;
-        border: none;
-        outline: none;
-        background: none;
-
-        color: #fff;
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-align: right;
-      }
+      padding: 5px 30px 10px;
       h1 {
         color: #fff;
         margin-bottom: 20px;
+        text-align: center;
       }
     }
     .chat-box {
-      max-height: 500px;
+      max-height: 450px;
       border-radius: 24px 24px 0px 0px;
       background-color: #fff;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
@@ -315,6 +314,8 @@ export default {
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
       form {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         input[type="text"] {
           flex: 1 1 100%;
           appearance: none;
@@ -322,7 +323,7 @@ export default {
           outline: none;
           background: none;
           display: block;
-          margin-right: 20px;
+          // margin-right: 20px;
           padding: 15px 15px;
           border-radius: 100px;
 
@@ -338,6 +339,9 @@ export default {
         }
 
         input[type="submit"] {
+          margin-top: 16px;
+          height: 48px;
+          width: 100%;
           appearance: none;
           border: none;
           outline: none;
